@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "links": [
+    "https://example.com/page1.html",
+    "https://example.com/page2.html",
+    "https://example.com/not-html.pdf"
+  ]
+}
