@@ -2,43 +2,40 @@
 
 Extracts and filters HTML links from `.json` files, retrieves page titles, logs dead links, and exports results as:
 
-* CSV
-* Browser-compatible bookmark HTML
-* Dead links list
+- CSV  
+- Browser-compatible bookmark HTML  
+- Dead links list  
 
 Supports grouping by source file and flexible command-line flags.
 
 ## Features
 
-* Greps for `https?://...html` links in `.json` files
-* Follows redirects (301/302) to resolve final URLs
-* Extracts page `<title>` text
-* Outputs results to CSV
-* Generates bookmark files importable into Chrome, Firefox, and others
-* Groups bookmarks by source file (optional)
-* Logs unreachable (dead) links to a separate file
+- Recursively extracts `https?://...html` links from `.json` files in current directory  
+- Follows redirects (301/302) to resolve final URLs  
+- Extracts page `<title>` text  
+- Outputs results to CSV  
+- Generates bookmark files importable into Chrome, Firefox, and others  
+- Groups bookmarks by source file (optional)  
+- Logs unreachable (dead) links to a separate file  
+- Shows progress bar during processing
+
+Auto-generated files after running the script (ignored by git):
+
+- `html_links.txt`           # Extracted raw links with source file info  
+- `titles_by_source.csv`     # Clean CSV with source, title, and URL  
+- `bookmarks.html`           # Standard HTML bookmark export  
+- `dead_links.txt`           # Any dead or unreachable links logged  
 
 ## Usage
 
-### 1. Extract Links from JSON
-
-Create an input file called `html_links.txt`:
+### 1. Run the Script
 
 ```bash
-grep -rhoP 'https?://[^"]+\.html' ./your_json_dir --include="*.json" | \
-  awk -v f=FILENAME '{ print f ":" $0 }' > html_links.txt
+bash link_scraper.sh [--csv] [--bookmarks] [--group] [--dead-links] [--all]
+
 ```
 
-Each line should look like:
-`./archives/1/example.json:https://example.com/page.html`
-
-### 2. Run the Script
-
-```bash
-bash link_scraper.sh
-```
-
-### 3. Optional Flags
+### 2. Optional Flags
 
 | Flag         | Description                                        |
 | ------------ | -------------------------------------------------- |
