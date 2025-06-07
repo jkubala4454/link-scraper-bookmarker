@@ -1,0 +1,13 @@
+{
+  "data": {
+    "homepage": "https://mysite.com/index.html",
+    "docs": [
+      "https://mysite.com/doc1.html",
+      "https://mysite.com/doc2.html"
+    ],
+    "non_links": [
+      "just some text",
+      "http://invalid-link"
+    ]
+  }
+}
