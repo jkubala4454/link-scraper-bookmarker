@@ -1,0 +1,8 @@
+{
+  "title": "Sample Document",
+  "references": [
+    "https://anotherdomain.org/article.html",
+    "https://anotherdomain.org/image.png",
+    "https://yetanother.com/content.html"
+  ]
+}
